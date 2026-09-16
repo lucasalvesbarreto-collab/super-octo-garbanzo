@@ -17,18 +17,19 @@
       ONG Esperança Viva
     </a>
 
-    <input
-      type="checkbox"
+    <button
+      type="button"
       id="menu-toggle"
+      aria-label="Abrir ou fechar menu"
       aria-controls="menu-principal"
+      aria-expanded="false"
+      class="menu-icon"
     >
-
-    <label for="menu-toggle" class="menu-icon">
       <span></span>
       <span></span>
       <span></span>
       <span class="sr-only">Abrir ou fechar menu</span>
-    </label>
+    </button>
 
     <nav id="menu-principal" class="menu" aria-label="Menu principal">
       <a href="index.html">Início</a>
@@ -159,6 +160,8 @@
   </main>
 
   <footer>
+
+  <script type="module" src="../js/menu.js"></script>
     <p>&copy; 2026 ONG Esperança Viva. Todos os direitos reservados.</p>
   </footer>
 </body>

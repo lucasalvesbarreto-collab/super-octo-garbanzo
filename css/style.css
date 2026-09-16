@@ -281,7 +281,9 @@ header {
 }
 
 #menu-toggle {
-  display: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
 }
 
 .menu-icon {
@@ -291,7 +293,7 @@ header {
   cursor: pointer;
 }
 
-#menu-toggle:checked ~ .menu {
+#menu-toggle[aria-expanded="true"] ~ .menu {
   display: flex;
 }
 
@@ -304,6 +306,19 @@ header {
   cursor: pointer;
 }
 
+#menu-toggle:focus-visible {
+  outline: 3px solid #f4c95d;
+  outline-offset: 5px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #c27b19;
+  outline-offset: 2px;
+}
+
 .menu-icon span {
   display: block;
   width: 100%;
@@ -313,15 +328,15 @@ header {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-#menu-toggle:checked + .menu-icon span:nth-child(1) {
+#menu-toggle[aria-expanded="true"] span:nth-child(1) {
   transform: translateY(10.5px) rotate(45deg);
 }
 
-#menu-toggle:checked + .menu-icon span:nth-child(2) {
+#menu-toggle[aria-expanded="true"] span:nth-child(2) {
   opacity: 0;
 }
 
-#menu-toggle:checked + .menu-icon span:nth-child(3) {
+#menu-toggle[aria-expanded="true"] span:nth-child(3) {
   transform: translateY(-10.5px) rotate(-45deg);
 }
 
@@ -558,7 +573,6 @@ input:not([type="checkbox"])::placeholder {
 
 input:not([type="checkbox"]):focus,
 select:focus {
-  outline: none;
   border-color: #c27b19;
   box-shadow: 0 0 0 3px #c27b1933;
 }
@@ -1037,7 +1051,8 @@ select.campo-valido {
 
 input:focus,
 select:focus {
-  outline: none;
+  outline: 3px solid #c27b19;
+  outline-offset: 2px;
 }
 
 input.campo-invalido:focus,

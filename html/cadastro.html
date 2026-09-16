@@ -21,6 +21,7 @@
     <input
       type="checkbox"
       id="menu-toggle"
+      aria-label="Abrir ou fechar menu"
       aria-controls="menu-principal"
     >
     
@@ -35,19 +36,19 @@
     <nav id="menu-principal" class="menu" aria-label="Menu principal">
       <a href="index.html">Início</a>
       <a href="projetos.html">Nossos Projetos</a>
-    </nav>
-  </header>
+    <button
+      type="button"
 
   <main class="container">
     <section id="formulario-cadastro" aria-labelledby="titulo-cadastro">
-      <h1 id="titulo-cadastro">Formulário de Cadastro</h1>
-
-      <p>
+      aria-expanded="false"
+      class="menu-icon"
+    >
         Junte-se à nossa causa preenchendo seus dados abaixo.
       </p>
 
       <div id="form-feedback" class="form-feedback" role="status" aria-live="polite" tabindex="-1" hidden></div>
-
+    </button>
       <form action="/processar-cadastro" method="post" data-spa-form novalidate>
 
         
@@ -224,6 +225,7 @@
   </footer>
 
   <script type="module" src="../js/validacao.js"></script>
+  <script type="module" src="../js/menu.js"></script>
 
 </body>
 </html>
