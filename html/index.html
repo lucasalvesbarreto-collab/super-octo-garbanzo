@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Conheça a ONG Esperança Viva e seus projetos sociais."
+  >
+  <title>ONG Esperança Viva - Página Inicial</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo" aria-label="Página inicial">
+      ONG Esperança Viva
+    </a>
+
+    <input
+      type="checkbox"
+      id="menu-toggle"
+      aria-controls="menu-principal"
+    >
+
+    <label for="menu-toggle" class="menu-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="sr-only">Abrir ou fechar menu</span>
+    </label>
+
+    <nav id="menu-principal" class="menu" aria-label="Menu principal">
+      <a href="cadastro.html">Cadastre-se</a>
+      <a href="projetos.html">Nossos Projetos</a>
+    </nav>
+
+  </header>
+
+<main id="app" class="container">
+  <section aria-labelledby="titulo-produtos">
+    <h2 id="titulo-produtos">Produtos</h2>
+    <div id="product-list" class="product-list"></div>
+  </section>
+
+
+  <template id="card-template">
+    <article class="product-card">
+      <h3 class="card-title"></h3>
+      <p class="card-price"></p>
+      <button type="button" class="card-btn">Comprar</button>
+    </article>
+  </template>
+
+  <section class="hero" aria-labelledby="titulo-principal">
+    <div>
+      <span class="hero-label">Transformando vidas</span>
+
+      <h1 id="titulo-principal">
+        Juntos construímos um futuro melhor
+      </h1>
+
+      <p>
+        Trabalhamos para transformar a comunidade por meio de projetos
+        sociais e educacionais.
+      </p>
+
+      <a href="projetos.html" class="button">
+        Conheça nossos projetos
+      </a>
+    </div>
+
+    <img
+      src="../imagens/apresentacao.jpg"
+      alt="Voluntários da ONG sorrindo durante uma ação social"
+    >
+  </section>
+
+  <section id="contato" aria-labelledby="titulo-contato">
+    <h2 id="titulo-contato">Entre em contato</h2>
+    <p>Fale conosco para colaborar, fazer doações ou obter mais informações.</p>
+
+    <address>
+      <ul>
+        <li><strong>E-mail:</strong> contato@ongexemplo.org</li>
+        <li><strong>Telefone:</strong> (11) 99999-9999</li>
+        <li><strong>Endereço:</strong> Rua da Solidariedade, 123 - São Paulo/SP</li>
+      </ul>
+    </address>
+  </section>
+</main>
+
+  <footer>
+    <p>&copy; 2026 ONG Esperança Viva. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="../js/app.js"></script>
+
+</body>
+</html>
