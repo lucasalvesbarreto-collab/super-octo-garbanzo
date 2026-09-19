@@ -48,6 +48,20 @@ jobs:
           name: site-dist
           path: dist
 
+      - name: Validar credenciais do Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
+            echo "Secret NETLIFY_AUTH_TOKEN não está configurado no repositório."
+            exit 1
+          fi
+          if [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "Secret NETLIFY_SITE_ID não está configurado no repositório."
+            exit 1
+          fi
+
       - name: Publicar no Netlify
         run: npx --yes netlify-cli deploy --dir=dist --prod --site "$NETLIFY_SITE_ID"
         env:
