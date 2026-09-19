@@ -11,47 +11,42 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
-
 <body>
   <header class="site-header">
     <a href="index.html" class="logo" aria-label="Página inicial">
       ONG Esperança Viva
     </a>
 
-    <input
-      type="checkbox"
+    <button
+      type="button"
       id="menu-toggle"
       aria-label="Abrir ou fechar menu"
       aria-controls="menu-principal"
+      aria-expanded="false"
+      class="menu-icon"
     >
-    
-
-    <label for="menu-toggle" class="menu-icon">
       <span></span>
       <span></span>
       <span></span>
       <span class="sr-only">Abrir ou fechar menu</span>
-    </label>
+    </button>
 
     <nav id="menu-principal" class="menu" aria-label="Menu principal">
       <a href="index.html">Início</a>
       <a href="projetos.html">Nossos Projetos</a>
-    <button
-      type="button"
+    </nav>
+  </header>
 
   <main class="container">
     <section id="formulario-cadastro" aria-labelledby="titulo-cadastro">
-      aria-expanded="false"
-      class="menu-icon"
-    >
-        Junte-se à nossa causa preenchendo seus dados abaixo.
+      <h1 id="titulo-cadastro">Junte-se à nossa causa</h1>
+      <p>
+        Preencha seus dados abaixo para se tornar voluntário ou apoiador da ONG Esperança Viva.
       </p>
 
       <div id="form-feedback" class="form-feedback" role="status" aria-live="polite" tabindex="-1" hidden></div>
-    </button>
-      <form action="/processar-cadastro" method="post" data-spa-form novalidate>
 
-        
+      <form action="/processar-cadastro" method="post" data-spa-form novalidate>
         <fieldset>
           <legend>Dados pessoais</legend>
 
@@ -195,28 +190,18 @@
           <p>Como você deseja contribuir?</p>
 
           <label>
-            <input
-              type="checkbox"
-              name="interesse[]"
-              value="voluntariado"
-            >
+            <input type="checkbox" name="interesse[]" value="voluntariado">
             Trabalho voluntário
           </label>
 
           <label>
-            <input
-              type="checkbox"
-              name="interesse[]"
-              value="doacao"
-            >
+            <input type="checkbox" name="interesse[]" value="doacao">
             Doações financeiras ou materiais
           </label>
         </fieldset>
 
         <button type="submit">Concluir cadastro</button>
       </form>
-
-      
     </section>
   </main>
 
@@ -226,7 +211,6 @@
 
   <script type="module" src="../js/validacao.js"></script>
   <script type="module" src="../js/menu.js"></script>
-
 </body>
 </html>
 

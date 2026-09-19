@@ -15,6 +15,16 @@
   --color-neutral-light: #F8F9FA;
   --color-neutral-white: #FFFFFF;
 
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F8F9FA;
+  --color-surface-strong: #1B4332;
+  --color-border: rgba(18, 18, 18, 0.12);
+  --color-link: #1B4332;
+  --color-link-hover: #2D6A4F;
+  --color-text: #121212;
+  --color-text-muted: #4A4A4A;
+  --color-shadow: rgba(0, 0, 0, 0.08);
+
   /* Escala Tipográfica */
   --font-size-xxl: 2.5rem;   /* 40px */
   --font-size-xl: 2.0rem;    /* 32px */
@@ -30,6 +40,59 @@
   --spacing-xl: 4.0rem;  /* 64px */
 }
 
+body.theme-dark {
+  --color-primary-dark: #A7F3D0;
+  --color-primary-base: #6EE7B7;
+  --color-primary-light: #DCFCE7;
+
+  --color-secondary-base: #FCA5A5;
+  --color-secondary-light: #FCD34D;
+
+  --color-neutral-darkest: #F3F4F6;
+  --color-neutral-dark: #D1D5DB;
+  --color-neutral-light: #111827;
+  --color-neutral-white: #0F172A;
+
+  --color-surface: #111827;
+  --color-surface-alt: #1F2937;
+  --color-surface-strong: #0B1220;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-link: #A7F3D0;
+  --color-link-hover: #DCFCE7;
+  --color-text: #F3F4F6;
+  --color-text-muted: #D1D5DB;
+  --color-shadow: rgba(0, 0, 0, 0.35);
+}
+
+body.high-contrast {
+  --color-primary-dark: #000000;
+  --color-primary-base: #FFD400;
+  --color-primary-light: #FFFF00;
+
+  --color-secondary-base: #FFB000;
+  --color-secondary-light: #FFEA00;
+
+  --color-neutral-darkest: #FFFFFF;
+  --color-neutral-dark: #F5F5F5;
+  --color-neutral-light: #000000;
+  --color-neutral-white: #000000;
+
+  --color-surface: #000000;
+  --color-surface-alt: #111111;
+  --color-surface-strong: #000000;
+  --color-border: #FFD400;
+  --color-link: #FFFF00;
+  --color-link-hover: #FFD400;
+  --color-text: #FFFFFF;
+  --color-text-muted: #F5F5F5;
+  --color-shadow: rgba(255, 212, 0, 0.4);
+}
+
+body.theme-dark, body.high-contrast {
+  background-color: var(--color-neutral-light);
+  color: var(--color-text);
+}
+
 /* ==========================================================================
    2. RESET E ESTILOS GERAIS
    ========================================================================== */
@@ -42,10 +105,16 @@
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: var(--font-size-md);
-  color: var(--color-neutral-darkest);
+  color: var(--color-text);
   background-color: var(--color-neutral-light);
   line-height: 1.6;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
+
+body a,
+body button {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+} 
 
 /* ==========================================================================
    3. SISTEMA DE GRID DE 12 COLUNAS
@@ -106,6 +175,52 @@ header h1 {
   color: var(--color-neutral-white);
 }
 
+.site-header {
+  gap: var(--spacing-sm);
+}
+
+.logo,
+.menu a,
+.button,
+.card-btn,
+.theme-toggle,
+.contrast-toggle {
+  color: var(--color-neutral-white);
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.theme-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.theme-toggle,
+.contrast-toggle {
+  border: 1px solid var(--color-border);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-neutral-white);
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.theme-toggle:hover,
+.contrast-toggle:hover,
+.button:hover,
+.card-btn:hover,
+.menu a:hover {
+  opacity: 0.92;
+}
+
 
 /* ==========================================================================
    5. CONTEÚDO PRINCIPAL (MAIN) & SEÇÕES
@@ -120,11 +235,12 @@ main {
 }
 
 section {
-  background-color: var(--color-neutral-white);
+  background-color: var(--color-surface);
+  color: var(--color-text);
   padding: var(--spacing-lg);
   border-radius: 8px;
   border-left: 6px solid var(--color-primary-base);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px var(--color-shadow);
 }
 
 h2 {
@@ -134,8 +250,71 @@ h2 {
 }
 
 p {
-  color: var(--color-neutral-dark);
+  color: var(--color-text-muted);
   margin-bottom: var(--spacing-md);
+}
+
+.hero-label,
+.card-price,
+.hero p,
+#contato li,
+#contato strong,
+.logo,
+.menu a,
+.button,
+.card-btn {
+  color: inherit;
+}
+
+.button,
+.card-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary-base);
+  color: var(--color-neutral-white);
+  border: 2px solid transparent;
+  border-radius: 6px;
+  padding: 0.8rem 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card-btn {
+  width: 100%;
+}
+
+#contato li {
+  background-color: var(--color-surface-alt);
+  padding: var(--spacing-sm);
+  border-radius: 4px;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+#contato strong {
+  color: var(--color-primary-dark);
+}
+
+.product-card {
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.product-card .card-title,
+.product-card .card-price {
+  color: var(--color-text);
+}
+
+body.high-contrast .button,
+body.high-contrast .card-btn,
+body.high-contrast .theme-toggle,
+body.high-contrast .contrast-toggle {
+  border: 2px solid var(--color-primary-light);
+  box-shadow: 0 0 0 2px rgba(255, 212, 0, 0.4);
 }
 
 /* Imagem da seção Sobre */
@@ -157,10 +336,11 @@ p {
 }
 
 #contato li {
-  background-color: var(--color-neutral-light);
+  background-color: var(--color-surface-alt);
   padding: var(--spacing-sm);
   border-radius: 4px;
-  color: var(--color-neutral-dark);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
 }
 
 #contato strong {
