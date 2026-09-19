@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
-    index: ["./js/app.js", "./js/menu.js"],
+    index: ["./js/menu.js"],
     cadastro: ["./js/validacao.js", "./js/menu.js"],
     projetos: ["./js/menu.js"]
   },

@@ -128,7 +128,6 @@ Não há suíte de testes automatizados configurada atualmente. A verificação 
 ├── package-lock.json
 ├── webpack.config.js
 ├── js/
-│   ├── app.js
 │   ├── router.js
 │   ├── storage.js
 │   └── validacao.js
